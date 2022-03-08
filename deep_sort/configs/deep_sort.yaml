@@ -1,0 +1,7 @@
+DEEPSORT:
+  MODEL_TYPE: "osnet_ain_x0_75"
+  MAX_DIST: 1.0 # The matching threshold. Samples with larger distance are considered an invalid match
+  MAX_IOU_DISTANCE: 1.0 # Gating threshold. Associations with cost larger than this value are disregarded.
+  MAX_AGE: 3 # Maximum number of missed misses before a track is deleted
+  N_INIT: 2 # Number of frames that a track remains in initialization phase
+  NN_BUDGET: 10000 # Maximum size of the appearance descriptors gallery

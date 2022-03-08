@@ -1,0 +1,9 @@
+YOLO:
+  IMAGESPATH: "/run/user/1000/gvfs/smb-share:server=10.15.1.22,share=video%201/RWG_Videos/00139378CRPC21/Batch024/Batch024/Images"
+  WEIGHTSPATH: "/home/dcil-900/Desktop/ObjectTracking/Yolov5_DeepSort_Pytorch/weights/phase1best.pt"
+  IMAGESIZE: (640, 640)
+  CONFTHRESHOLD: 0.7
+  IOUTHRESHOLD: 0.45
+  DEVICE: 0
+  SAVECSV: True
+  SAVETXT: False

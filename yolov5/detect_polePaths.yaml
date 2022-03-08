@@ -1,0 +1,9 @@
+YOLO:
+  IMAGESPATH: "/run/user/1000/gvfs/smb-share:server=pluto,share=video%201/04.SOFTWARE DEPARTMENT/SoumyaM/ObjectTracking/TrafficSignal/all_CA_Batch003F"
+  WEIGHTSPATH: "/home/dcil-900/Desktop/ObjectTracking/Yolov5_DeepSort_Pytorch/weights/best.pt"
+  IMAGESIZE: (3840, 2180)
+  CONFTHRESHOLD: 0.5
+  IOUTHRESHOLD: 0.45
+  DEVICE: 0
+  SAVECSV: True
+  SAVETXT: False
