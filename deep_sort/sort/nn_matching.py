@@ -85,7 +85,7 @@ def _nn_cosine_distance(x, y):
     # print("Targets", x[0].shape)
     # print("Detections", y)
     # print("Cosine distances", distances)
-    print("Cosine distances.min(axis=0)", distances.min(axis=0))
+    # print("Cosine distances.min(axis=0)", distances.min(axis=0))
     return distances.min(axis=0)
 
 

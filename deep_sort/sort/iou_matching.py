@@ -79,7 +79,7 @@ def iou_cost(tracks, detections, track_indices=None,
         detection_indices = np.arange(len(detections))
 
     cost_matrix = np.zeros((len(track_indices), len(detection_indices)))
-    print(track_indices)
+    # print(track_indices)
     for row, track_idx in enumerate(track_indices):
 
         if tracks[track_idx].time_since_update > 1:
@@ -95,5 +95,5 @@ def iou_cost(tracks, detections, track_indices=None,
         # print("candidates", candidates)
         # print("IOUS : ", iou(bbox, candidates))
         cost_matrix[row, :] = 1. - iou(bbox, candidates)
-    print("iou cost_matrix", cost_matrix)
+    # print("iou cost_matrix", cost_matrix)
     return cost_matrix

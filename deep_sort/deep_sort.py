@@ -60,7 +60,7 @@ class DeepSort(object):
 
     def update(self, bbox_xywh, confidences, classes, ori_img, prev_ids, frames_classes,frame_index, use_yolo_preds=True):
         self.height, self.width = ori_img.shape[:2]
-        print("Initial Inputs", len(bbox_xywh))
+        # print("Initial Inputs", len(bbox_xywh))
         # generate detections
         features = self._get_features(bbox_xywh, ori_img)
         bbox_tlwh = self._xywh_to_tlwh(bbox_xywh)
@@ -94,16 +94,16 @@ class DeepSort(object):
                 
             # track_id = recur_trackid(track_id, prev_ids, class_id)
             
-            # if len(self.previds_boxes) and track_id in list(self.previds_boxes.keys()) and class_id in [7, 4, 5]:
-            #     prev_info = self.previds_boxes[track_id][-1]
-            #     track_id = compare_bboxes([x1, y1, x2, y2], track_id, class_id, prev_info)
+            if len(self.previds_boxes) and track_id in list(self.previds_boxes.keys()) and class_id in [7, 4]:
+                prev_info = self.previds_boxes[track_id][-1]
+                track_id = compare_bboxes([x1, y1, x2, y2], track_id, class_id, prev_info)
 
 
-            # if not track_id in list(self.previds_boxes.keys()) :
-            #     self.previds_boxes[track_id] = []
-            # self.previds_boxes[track_id].append([x1, y1, x2, y2, class_id])
+            if not track_id in list(self.previds_boxes.keys()) :
+                self.previds_boxes[track_id] = []
+            self.previds_boxes[track_id].append([x1, y1, x2, y2, class_id])
 
-            # prev_ids.update(track_id = class_id)
+            prev_ids.update(track_id = class_id)
             # print([x1, y1, x2, y2, track_id, class_id])
 
             outputs.append(np.array([x1, y1, x2, y2, track_id, class_id], dtype=np.int))

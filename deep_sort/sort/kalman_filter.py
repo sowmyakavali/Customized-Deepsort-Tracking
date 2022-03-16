@@ -50,7 +50,7 @@ class KalmanFilter(object):
         # state estimate. These weights control the amount of uncertainty in
         # the model. This is a bit hacky.
         self._std_weight_position = 1. / 20 #1. / 20
-        self._std_weight_velocity = 1. / 190 #1. / 160
+        self._std_weight_velocity = 1. / 160 #1. / 160
 
     def initiate(self, measurement):
         """Create track from unassociated measurement.
@@ -78,10 +78,12 @@ class KalmanFilter(object):
             2 * self._std_weight_position * measurement[1],   # the center point y
             10 * measurement[2],                               # the ratio of width/height
             2 * self._std_weight_position * measurement[3],   # the height
+
             10 * self._std_weight_velocity * measurement[0],
             10 * self._std_weight_velocity * measurement[1],
             0.1 * measurement[2],
             10 * self._std_weight_velocity * measurement[3]]
+            
         covariance = np.diag(np.square(std))
         return mean, covariance
 

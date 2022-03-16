@@ -34,9 +34,9 @@ class Tracker:
         The list of active tracks at the current time step.
     """
     GATING_THRESHOLD = np.sqrt(kalman_filter.chi2inv95[1])
-    print("kalman_filter.chi2inv95[4]", kalman_filter.chi2inv95[4])
-    # GATING_THRESHOLD = 20
-    print("GATING_THRESHOLD", GATING_THRESHOLD)
+    # print("kalman_filter.chi2inv95[4]", kalman_filter.chi2inv95[4])
+    # # GATING_THRESHOLD = 20
+    # print("GATING_THRESHOLD", GATING_THRESHOLD)
     
 
     def __init__(self, metric, max_iou_distance=0.9, max_age=30, n_init=3, _lambda=1):
@@ -119,7 +119,7 @@ class Tracker:
                     tracks[track_idx].mean, tracks[track_idx].covariance, msrs, True
                 )
             ) / self.GATING_THRESHOLD
-        print("pos_cost", pos_cost)
+        # print("pos_cost", pos_cost)
         pos_gate = pos_cost > 1.0 #pos_cost > 1.0
         # print("pos_gate", pos_gate)
         # Now Compute the Appearance-based Cost Matrix
@@ -127,7 +127,7 @@ class Tracker:
             np.array([dets[i].feature for i in detection_indices]),
             np.array([tracks[i].track_id for i in track_indices]),
         )
-        print("app_cost", app_cost)
+        # print("app_cost", app_cost)
         app_gate = app_cost > 1.0#self.metric.matching_threshold # = 1
         # Now combine and threshold
         cost_matrix = self._lambda * pos_cost + (1 - self._lambda) * app_cost
@@ -167,7 +167,7 @@ class Tracker:
         )
 
         matches = matches_a + matches_b
-        print(f"Matches_a : {matches_a}   Matches_b : {matches_b}")
+        # print(f"Matches_a : {matches_a}   Matches_b : {matches_b}")
         unmatched_tracks = list(set(unmatched_tracks_a + unmatched_tracks_b))
         return matches, unmatched_tracks, unmatched_detections
 
