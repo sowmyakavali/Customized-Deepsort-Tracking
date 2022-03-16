@@ -1,0 +1,10 @@
+DATA:
+    IMAGESPATH: "Images"
+    ALLIMAGESCSV: "Batch22C_allfilenames.csv"
+    INFERENCECSV: "Batch22C_detections.csv"
+    ALLCLASSES: "classes.txt"
+    ASSETTYPE: "pole"
+    SIZE: [3840, 2160]
+    SAVETXT: True
+    CLASSWISEVIDEO : False
+    MULTICLASSVIDEO : True
